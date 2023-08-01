@@ -4,7 +4,6 @@ from langchain.vectorstores.faiss import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 import pickle
 import os
-os.environ["OPENAI_API_KEY"] = "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"
 
 # Load Data
 loader = UnstructuredFileLoader("book.txt")
