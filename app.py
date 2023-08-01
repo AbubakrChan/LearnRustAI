@@ -5,12 +5,13 @@ import gradio as gr
 import pickle
 from query_data import get_chain
 from threading import Lock
-
+from elevenlabs import set_api_key
 import openai
 import whisper
 
+set_api_key('Enter your ElevenLabs API Key: ')
+openai.api_key = "Your_API_KEY_HERE"
 
-openai.api_key = "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"
 
 
 model = whisper.load_model("base")
@@ -44,6 +45,7 @@ class Chat:
               "content": response_content
           })
           return response_content
+from elevenlabs import generate, play
 
 
 chat = Chat(system="You have to take Interview for the rust programming language ask questions one by one." )
@@ -51,6 +53,13 @@ chat = Chat(system="You have to take Interview for the rust programming language
 
 def run_text_prompt(message, chat_history):
     bot_message = chat.prompt(content=message)
+
+    audio = generate(
+        text=bot_message,
+        voice="Bella"
+    )
+
+    play(audio, notebook=True)
 
     chat_history.append((message, bot_message))
     return "", chat_history
