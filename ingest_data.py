@@ -7,7 +7,7 @@ import os
 os.environ["OPENAI_API_KEY"] = "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"
 
 # Load Data
-loader = UnstructuredFileLoader("state_of_the_union.txt")
+loader = UnstructuredFileLoader("book.txt")
 raw_documents = loader.load()
 
 # Split text
