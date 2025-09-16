@@ -1,7 +1,7 @@
 import pickle
 from query_data import get_chain
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 if __name__ == "__main__":
     with open("vectorstore.pkl", "rb") as f:
@@ -16,3 +16,4 @@ if __name__ == "__main__":
         chat_history.append((question, result["answer"]))
         print("AI:")
         print(result["answer"])
+
